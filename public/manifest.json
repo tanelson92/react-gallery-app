@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React App Gallery",
+  "name": "React Gallery App by Trent Nelson",
   "icons": [
     {
       "src": "favicon.ico",
