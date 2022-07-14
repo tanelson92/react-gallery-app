@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import NotFound from './components/NotFoundPage';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementsByClassName('container')[0]);
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route exact path="/" element={ <App /> } />
+        <Route path="cats" element={ <App query={'cats'}/> } />
+        <Route path="dogs" element={ <App query={'dogs'}/> } />
+        <Route path="monkeys" element={ <App query={'monkeys'}/> } />
+        <Route path="search" element={ <App /> }>
+          <Route path=":query" element={ <App /> } />
+        </Route>
+        <Route path="*" element={ <NotFound /> } />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
